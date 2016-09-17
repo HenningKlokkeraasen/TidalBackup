@@ -1,30 +1,25 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using OpenTidl;
 using OpenTidl.Methods;
 
 namespace TidalBackup.App.TidalIntegration
 {
-    public class TidalIntegrator
+    public static class TidalIntegrator
     {
-        private readonly OpenTidlClient _client;
-
-        /// <summary>
-        /// Creates an OpenTidlClient using ClientConfiguration.Default
-        /// </summary>
-        public TidalIntegrator()
+        public static async Task<OpenTidlSession> LoginUserAsync(string username, string password)
         {
-            _client = new OpenTidlClient(ClientConfiguration.Default);
-        }
-
-        public TidalIntegrator(OpenTidlClient client)
-        {
-            _client = client;
-        }
-
-        public async Task<OpenTidlSession> LoginUserAsync(string username, string password)
-        {
-            var openTidlSession = await _client.LoginWithUsername(username, password);
-            return openTidlSession;
+            var client = new OpenTidlClient(ClientConfiguration.Default);
+            OpenTidlSession session;
+            try
+            {
+                session = await client.LoginWithUsername(username, password);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return session;
         }
     }
 }

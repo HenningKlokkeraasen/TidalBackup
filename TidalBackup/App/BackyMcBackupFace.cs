@@ -1,31 +1,23 @@
 ﻿using System;
 using System.Threading.Tasks;
-using OpenTidl.Methods;
-using TidalBackup.App.FileSystemIntegration;
 using TidalBackup.App.ThingsToBackup;
 using TidalBackup.App.TidalIntegration;
 
 namespace TidalBackup.App
 {
-    public class BackyMcBackupFace
+    public static class BackyMcBackupFace
     {
-        public async Task BackupAllTheThings(string username, string password)
+        public static async Task BackupAllTheThings(string username, string password)
         {
-            var tidalIntegrator = new TidalIntegrator();
-            OpenTidlSession session;
-            try
-            {
-                session = tidalIntegrator.LoginUserAsync(username, password).Result;
-            }
-            catch (Exception)
+            var session = await TidalIntegrator.LoginUserAsync(username, password);
+            if (session == null)
             {
                 Console.WriteLine("Could not log in :(");
                 return;
             }
 
-            var simpleStringWriter = new SimpleStringWriter(new DirectoryCreator());
-            var folderName = DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            var backupExecutor = new BackupExecutor(session, simpleStringWriter, folderName);
+            var folderName = BackupFolderNameProvider.ConstructNameBasedOnCurrentDirectoryAndDateTimeNow;
+            var backupExecutor = new BackupExecutor(session, folderName);
 
             await backupExecutor.Backup(new FavoriteArtists());
             await backupExecutor.Backup(new FavoriteTracks());

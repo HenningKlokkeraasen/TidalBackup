@@ -10,27 +10,20 @@ namespace TidalBackup.App
     public class BackupExecutor
     {
         private readonly OpenTidlSession _session;
-        private readonly SimpleStringWriter _simpleStringWriter;
         private readonly string _folderName;
 
-        public BackupExecutor(OpenTidlSession session, SimpleStringWriter simpleStringWriter, string folderName)
+        public BackupExecutor(OpenTidlSession session, string folderName)
         {
             _session = session;
-            _simpleStringWriter = simpleStringWriter;
             _folderName = folderName;
         }
 
         public async Task Backup<T>(ISomethingToBackup<T> somethingToBackup)
         {
             var jsonList = await somethingToBackup.GetIt.Invoke(_session);
-            WriteToFile(jsonList, _simpleStringWriter, _folderName, somethingToBackup.Filename);
+            var serializedObject = JsonConvert.SerializeObject(jsonList);
+            SimpleStringWriter.WriteStringToFile(serializedObject, _folderName, somethingToBackup.Filename);
             Console.WriteLine($"Backed up {somethingToBackup.FriendlyName}");
-        }
-        
-        protected static void WriteToFile(object obj, SimpleStringWriter simpleStringWriter, string folderName, string fileName)
-        {
-            var serializedObject = JsonConvert.SerializeObject(obj);
-            simpleStringWriter.WriteStringToFile(serializedObject, folderName, fileName);
         }
     }
 }

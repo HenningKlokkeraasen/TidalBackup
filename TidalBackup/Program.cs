@@ -16,7 +16,7 @@ namespace TidalBackup
             var username = args[0];
             var password = args[1];
             
-            new BackyMcBackupFace().BackupAllTheThings(username, password)
+            BackyMcBackupFace.BackupAllTheThings(username, password)
                 .Wait();
         }
     }

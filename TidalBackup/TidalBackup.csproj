@@ -53,9 +53,9 @@
     <Compile Include="App\ThingsToBackup\ISomethingToBackup.cs" />
     <Compile Include="App\ThingsToBackup\FavoriteArtists.cs" />
     <Compile Include="App\ThingsToBackup\FavoriteTracks.cs" />
-    <Compile Include="App\FileSystemIntegration\DirectoryCreator.cs" />
-    <Compile Include="App\TidalIntegration\TidalIntegrator.cs" />
+    <Compile Include="App\BackupFolderNameProvider.cs" />
     <Compile Include="App\FileSystemIntegration\SimpleStringWriter.cs" />
+    <Compile Include="App\TidalIntegration\TidalIntegrator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
