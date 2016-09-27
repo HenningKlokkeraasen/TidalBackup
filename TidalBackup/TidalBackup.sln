@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TidalBackup", "TidalBackup.csproj", "{4EE3C4BD-32A0-4041-9D6C-52B4BB7362B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTidl", "..\OpenTidl\OpenTidl.csproj", "{3796564B-3A91-4AEE-B859-E7E6BCF1521D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC050E12-C0DE-4B7B-8AE5-4A900C3A09D3}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
@@ -24,10 +22,6 @@ Global
 		{4EE3C4BD-32A0-4041-9D6C-52B4BB7362B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE3C4BD-32A0-4041-9D6C-52B4BB7362B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE3C4BD-32A0-4041-9D6C-52B4BB7362B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3796564B-3A91-4AEE-B859-E7E6BCF1521D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3796564B-3A91-4AEE-B859-E7E6BCF1521D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3796564B-3A91-4AEE-B859-E7E6BCF1521D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3796564B-3A91-4AEE-B859-E7E6BCF1521D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

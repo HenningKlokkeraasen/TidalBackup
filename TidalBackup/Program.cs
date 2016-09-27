@@ -10,6 +10,7 @@ namespace TidalBackup
             if (args == null || args.Length != 2)
             {
                 Console.WriteLine("USAGE: tidalbackup.exe [username] [password]");
+                Console.ReadLine();
                 return;
             }
 
