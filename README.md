@@ -5,7 +5,7 @@ This program fetches your playlists, favorite playlists, favorite artists, favor
 The data is stored as json files in the current directory under \Backup\ [DateTime of execution].
 
 #Dependencies
-OpenTidl: Get it from  https://github.com/jackfagner/OpenTidl
+OpenTidl: > Install-Package OpenTidl
 
 #Run
 > tidalbackup.exe [username] [password]
